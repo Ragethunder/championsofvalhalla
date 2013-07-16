@@ -1,0 +1,13 @@
+{
+  "env" : {
+    "default" : {
+      "db" : "http://Rage:vlada12345@localhost:5984/maindb"
+    },
+    "prod" : {
+      "db" : "http://admin:vlada12345@localhost:5984/maindb"
+    },
+    "away" : {
+      "db" : "http://champions-of-valhalla:cybertox1990@champions-of-valhalla.cloudant.com/maindb/"
+    }
+  }
+}

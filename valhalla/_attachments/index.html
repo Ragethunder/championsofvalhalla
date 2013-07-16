@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<title>Champions of Valhalla</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	
+	<script src="vendor/couchapp/jquery.min.js"></script>
+	<script src="vendor/couchapp/jquery-ui.min.js"></script>
+	<script src="vendor/couchapp/kinetic-v4.5.4.min.js"></script>
+
+	<script src="vendor/couchapp/bootstrap.min.js"></script>
+	<script src="vendor/couchapp/angular-1.0.1.min.js"></script>
+	<script src="vendor/couchapp/angular-ui.js"></script>
+	
+	<script src="/_utils/script/sha1.js"></script>
+	<script src="/_utils/script/json2.js"></script>
+	<script src="/_utils/script/jquery.js"></script>
+	<script src="/_utils/script/jquery.couch.js"></script>
+	<script src="vendor/couchapp/jquery.couchLogin.js"></script>
+	<script src="vendor/couchapp/jquery.couchProfile.js"></script>
+	<script src="vendor/couchapp/md5.js"></script>
+	<script src="vendor/couchapp/jquery.mustache.js"></script>
+	
+	<script src="vendor/couchapp/jquery.mCustomScrollbar.min.js"></script>
+	<script src="vendor/couchapp/jquery.mousewheel.min.js"></script>
+	
+	<script src="script/my-script.js"></script>
+	
+	<link rel="stylesheet" href="css/angular-ui.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+</head>
+<body ng-controller="MainCtrl">
+	<header>
+		<div id="header-content">
+			<div id="main-logo">
+				Champions of Valhalla
+			</div>
+			<div id="header-nav">
+				<div id="profile"></div>
+				<div id="account"></div>
+			</div>
+		</div>
+	</header>
+	<div id="wrapper">
+		<div id="champion-select">
+			<ul id="champion-list">
+				<img id="close-champion-select" src="images/close.png" width="32" height="32">
+				<li id="berzerker-li">
+					<img src="images/berzerker-thumb.png">
+					<h1>Berzerker</h1>
+				</li>
+				<li id="reaver-li">
+					<img src="images/reaver-thumb.png">
+					<h1>Reaver</h1>
+				</li>
+				<li id="scout-li">
+					<img src="images/scout-thumb.png">
+					<h1>Scout</h1>
+				</li>
+				<li id="ranger-li">
+					<img src="images/ranger-thumb.png">
+					<h1>Ranger</h1>
+				</li>
+				<li id="volva-li">
+					<img src="images/volva-thumb.png">
+					<h1>Volva</h1>
+				</li>
+				<li id="druid-li">
+					<img src="images/druid-thumb.png">
+					<h1>Druid</h1>
+				</li>
+			</ul>
+			<section id="berzerker-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Berzerker</h1>
+				<img src="images/berzerker.png" class="preview" width="309" height="400">
+				<p>One of a band of ancient Norse warriors legendary for their savagery and reckless frenzy in battle. <a href="http://en.wikipedia.org/wiki/Berserker">Berzerker</a> fights with an uncontrollable, trance-like fury and is a fearsome opponent in close combat.<br>Berzerkers are strong and heavily armored, making them perfect chargers.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/charge.png" width="64" height="64">
+						<h1>Charge</h1>
+						<span>Instead of running toward it's target, this unit will charge it furiously and stun the target for 1 move.</span>
+					</li>
+					<li>
+						<img src="images/abilities/leap-slam.png" width="64" height="64">
+						<h1>Leap Slam</h1>
+						<span>This unit picks a random target and leaps onto it, slaming the ground and damaging target for 100% weapon damage and all other targets for 50% weapon damage.</span>
+					</li>
+					<li>
+						<img src="images/abilities/titan-strength.png" width="64" height="64">
+						<h1>Giant's Strength</h1>
+						<span><em class="passive">Passive:</em> This unit deals 25% more damage with its normal attacks and takes 30% less damage from enemies.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-berzerker" class="select-character">Create</div>
+			</section>
+			<section id="reaver-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Reaver</h1>
+				<img src="images/reaver.png" class="preview" width="309" height="400">
+				<p>Reavers are fierce warriors that rely on their skills with various weapons and their speed to overcome even the toughest of enemies. They strike so fast and acurately that enemies have no time to react and avoid attacks, making them an easy prey for Reaver. They might not be the bulkiest of the northern warriors, but their skill is legendary.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/double-strike.png" width="64" height="64">
+						<h1>Double Strike</h1>
+						<span>Strikes the target twice in one turn.</span>
+					</li>
+					<li>
+						<img src="images/abilities/critical-strike.png" width="64" height="64">
+						<h1>Critical Strike</h1>
+						<span>A heavy blow that deals 150% weapon damage and causes the target to bleed for 10% of current health per turn for 3 turns.</span>
+					</li>
+					<li>
+						<img src="images/abilities/parry.png" width="64" height="64">
+						<h1>Parry</h1>
+						<span><em class="passive">Passive:</em> This unit has a 25% chance to evade enemy's attack and strike back for 75% of normal attack's damage.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-reaver" class="select-character">Create</div>
+			</section>
+			<section id="scout-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Scout</h1>
+				<img src="images/scout.png" class="preview" width="309" height="400">
+				<p>Scouts are extremely quick and deadly fighters. They are masters of disguise and deception and can disable targets from long distances using bow and arrow. Despite their lack of heavy armor or strength, scouts can easily dodge attacks and kill large targets with a single deadly strike.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/backstab.png" width="64" height="64">
+						<h1>Backstab</h1>
+						<span><em class="passive">Passive:</em> If this unit was not being focused by the target in last turn, this unit will deal 75% more damage to the target.</span>
+					</li>
+					<li>
+						<img src="images/abilities/poison-arrow.png" width="64" height="64">
+						<h1>Poison Arrow</h1>
+						<span>This unit fires an arrow from a long distance, dealing 100% weapon damage and stunning the target for 1 turn.</span>
+					</li>
+					<li>
+						<img src="images/abilities/quick-step.png" width="64" height="64">
+						<h1>Quickness</h1>
+						<span><em class="passive">Passive:</em> This unit can travel fast, losing no turn points when switching targets.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-scout" class="select-character">Create</div>
+			</section>
+			<section id="ranger-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Ranger</h1>
+				<img src="images/ranger.png" class="preview" width="309" height="400">
+				<p>Rangers are terrifying opponents, known for their accuracy with bow and arrow, as well as their knowledge of <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>. They can shoot enemies from large distances with deadly precision and take cover when approached by heavy targets.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/bow.png" width="64" height="64">
+						<h1>Ranged Attacks</h1>
+						<span><em class="passive">Passive:</em> This unit can attack targets without approaching them, but deals 20% reduced damage.</span>
+					</li>
+					<li>
+						<img src="images/abilities/force-push.png" width="64" height="64">
+						<h1>Force Push</h1>
+						<span>Using <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>, this unit can push targets away, stunning them for 1 move.</span>
+					</li>
+					<li>
+						<img src="images/abilities/disengage.png" width="64" height="64">
+						<h1>Disengage</h1>
+						<span><em class="passive">Passive:</em> When approached by enemy, this unit will retreat to safety.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-ranger" class="select-character">Create</div>
+			</section>
+			<section id="volva-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Volva</h1>
+				<img src="images/volva.png" class="preview" width="309" height="400">
+				<p><a href="http://en.wikipedia.org/wiki/V%C3%B6lva">Volva</a> is an ancient female shaman that can use the power of seidr, gifted to her from Gods to wreak havoc on her enemies. Volva can also see into future, giving her an advantage over opponents and making her near invincible.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/fireball.png" width="64" height="64">
+						<h1>Fireball</h1>
+						<span>Using <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>, throws a ball of molten lava onto target, dealing 100% weapon damage to it and 50% weapon damage to other enemies.</span>
+					</li>
+					<li>
+						<img src="images/abilities/energy-shield.png" width="64" height="64">
+						<h1>Energy Shield</h1>
+						<span>Using <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>, creates a protective barrier around a friendly target that will absorb 2 enemy attacks.</span>
+					</li>
+					<li>
+						<img src="images/abilities/quick-reflexes.png" width="64" height="64">
+						<h1>Quick Reflexes</h1>
+						<span><em class="passive">Passive:</em> This unit evades 33% of incoming attacks.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-volva" class="select-character">Create</div>
+			</section>
+			<section id="druid-select">
+				<img class="close-select" src="images/close.png" width="32" height="32">
+				<h1>Druid</h1>
+				<img src="images/druid.png" class="preview" width="309" height="400">
+				<p><a href="http://en.wikipedia.org/wiki/Druid">Druids</a> are well known for their knowledge of <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a> which they use to call upon forces of nature. They can heal allies, summon creatures and enchant their weapons to deal more damage.</p>
+				<p>Notable abilities:</p>
+				<ul>
+					<li>
+						<img src="images/abilities/ghost-wolf.png" width="64" height="64">
+						<h1>Ghost Wolf</h1>
+						<span>Using <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>, summons a wolf companion to fight for you. Wolf's power is determined by summoner champion's level.</span>
+					</li>
+					<li>
+						<img src="images/abilities/enchant.png" width="64" height="64">
+						<h1>Enchant</h1>
+						<span>Using <a href="http://en.wikipedia.org/wiki/Sei%C3%B0r">seidr</a>, imbues a friendly target's weapon so that it deals 20% more damage and gives each attack a chance to heal the target for 30% of damage done.</span>
+					</li>
+					<li>
+						<img src="images/abilities/mend.png" width="64" height="64">
+						<h1>Mend</h1>
+						<span><em class="passive">Passive:</em> This unit takes 15% reduced damage, and when damaged, this unit will heal whole group for 25% of damage taken.</span>
+					</li>
+				</ul>
+				<p class="note">Note that these abilities are not restricted to this class, but it takes less time to acquire them if you pick this class.</p>
+				<input type="text" class="character-name"></input>
+				<div id="select-druid" class="select-character">Create</div>
+			</section>
+		</div>
+		<div id="champion-details">
+			<div id="champion-details-header">
+				<img id="champion-details-thumb" src="{{ detailed_char.thumbnail }}" width="161" height="161">
+				<h1 id="champion-details-name">{{ detailed_char.name }}</h1>
+				<h2 id="champion-details-class">Level {{ detailed_char.level }} {{ detailed_char.class }}</h2>
+				<h3 id="champion-details-player">{{ detailed_char.player }}</h3>
+				<div id="champion-details-level-progress">
+					<div id="champion-details-level-progress-fill"></div>
+					<div id="champion-details-level-progress-amount">{{ detailed_char.experience }}/{{ detailed_char.level * 10 }}</div>
+				</div>
+				<img id="close-champion-details" src="images/close.png" width="32" height="32">
+			</div>
+			<div id="champion-details-content">
+				<div id="champion-details-inventory">
+					<div class="item" id="champion-details-inventory-head">
+						<div ng-show="detailed_char.items.head != undefined" style="background-image: url({{ detailed_char.items.head.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.head.name }}</h1>
+								<h2>{{ detailed_char.items.head.slot }}</h2>
+								<h3>{{ detailed_char.items.head.stats }}</h3>
+								<h4>{{ detailed_char.items.head.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.head.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-body">
+						<div ng-show="detailed_char.items.body != undefined" style="background-image: url({{ detailed_char.items.body.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.body.name }}</h1>
+								<h2>{{ detailed_char.items.body.slot }}</h2>
+								<h3>{{ detailed_char.items.body.stats }}</h3>
+								<h4>{{ detailed_char.items.body.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.body.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-feet">
+						<div ng-show="detailed_char.items.feet != undefined" style="background-image: url({{ detailed_char.items.feet.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.feet.name }}</h1>
+								<h2>{{ detailed_char.items.feet.slot }}</h2>
+								<h3>{{ detailed_char.items.feet.stats }}</h3>
+								<h4>{{ detailed_char.items.feet.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.feet.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-hands">
+						<div ng-show="detailed_char.items.hands != undefined" style="background-image: url({{ detailed_char.items.hands.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.hands.name }}</h1>
+								<h2>{{ detailed_char.items.hands.slot }}</h2>
+								<h3>{{ detailed_char.items.hands.stats }}</h3>
+								<h4>{{ detailed_char.items.hands.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.hands.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-shoulders">
+						<div ng-show="detailed_char.items.shoulders != undefined" style="background-image: url({{ detailed_char.items.shoulders.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.shoulders.name }}</h1>
+								<h2>{{ detailed_char.items.shoulders.slot }}</h2>
+								<h3>{{ detailed_char.items.shoulders.stats }}</h3>
+								<h4>{{ detailed_char.items.shoulders.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.shoulders.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-mainhand">
+						<div ng-show="detailed_char.items.mainhand != undefined" style="background-image: url({{ detailed_char.items.mainhand.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.mainhand.name }}</h1>
+								<h2>{{ detailed_char.items.mainhand.slot }}</h2>
+								<h3>{{ detailed_char.items.mainhand.stats }}</h3>
+								<h4>{{ detailed_char.items.mainhand.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.mainhand.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="champion-details-inventory-offhand">
+						<div ng-show="detailed_char.items.offhand != undefined" style="background-image: url({{ detailed_char.items.offhand.image }});">
+							<div class="item-tooltip">
+								<h1>{{ detailed_char.items.offhand.name }}</h1>
+								<h2>{{ detailed_char.items.offhand.slot }}</h2>
+								<h3>{{ detailed_char.items.offhand.stats }}</h3>
+								<h4>{{ detailed_char.items.offhand.weight }}</h4>
+								<ul>
+									<li ng-repeat="bonus in detailed_char.items.offhand.bonuses">
+										{{ bonus.text }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="champion-details-stats">
+					<h1 class="has-tooltip"><p class="tooltip">Strength increases weapon damage and armor.</p>Strength<span>{{ detailed_char.strength }}</span></h1>
+					<h1 class="has-tooltip"><p class="tooltip">Stamina increases movement and run distance.</p>Stamina<span>{{ detailed_char.stamina }}</span></h1>
+					<h1 class="has-tooltip"><p class="tooltip">Vitality increases total hit points and hit points regeneration.</p>Vitality<span>{{ detailed_char.vitality }}</span></h1>
+					<h1 class="has-tooltip"><p class="tooltip">Dexterity increases attack rating and dodge rating.</p>Dexterity<span>{{ detailed_char.dexterity }}</span></h1>
+					<h1 class="has-tooltip"><p class="tooltip">Intelligence increases chance of scoring a critical strike and power of your spells.</p>Intelligence<span>{{ detailed_char.intelligence }}</span></h1>
+					<h1 class="has-tooltip"><p class="tooltip">Wisdom increases total amount of seidr and seidr regeneration.</p>Wisdom<span>{{ detailed_char.wisdom }}</span></h1>
+					<h2 class="has-tooltip"><p class="tooltip">Hit points determine how much damage this character can take in battle.</p>Hit points<span>{{ detailed_char.hitpoints }}</span></h2>
+					<h2 class="has-tooltip"><p class="tooltip">Seidr determines how many spells can this character cast in battle.</p>Seidr<span>{{ detailed_char.seidr }}</span></h2>
+					<div class="shared-inventory-item">
+						<div ng-repeat="item in shared_inventory" class="item-tooltip">
+							<h1>{{ item.name }}</h1>
+							<h2>{{ item.slot }}</h2>
+							<h3>{{ item.stats }}</h3>
+							<h4>{{ item.weight }}</h4>
+							<ul>
+								<li ng-repeat="bonus in item.bonuses">
+									{{ bonus.text }}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="champion-details-abilities">
+					<h3>Active abilities</h3>
+					<ul>
+						<li class="has-tooltip ability" ng-repeat="ability in detailed_char.active_abilities"><img src="{{ abilities_db[ability.id].icon }}"><div class="tooltip"><h1>{{ abilities_db[ability].name }}</h1><span>{{ abilities_db[ability].description }}</span><br><span>Base range: {{ abilities_db[ability].base_range }}</span><p class="note">Click to replace or remove.</p></div></li>
+						<li class="has-tooltip ability" ng-show="detailed_char.player == user_profile.name && detailed_char.active_abilities.length < 8"><img src="images/abilities/empty-slot.png" width="64" height="64"><div class="tooltip"><h1>Empty Slot</h1><span>Click to select ability from list of available abilities.</span></div></li>
+					</ul>
+					<h3>Available abilities</h3>
+					<ul>
+						<li class="has-tooltip ability" ng-repeat="ability in detailed_char.abilities"><img src="{{ abilities_db[ability].icon }}"><div class="tooltip"><h1>{{ abilities_db[ability].name }}</h1><span>{{ abilities_db[ability].description }}</span><br><span>Base range: {{ abilities_db[ability].base_range }}</span><p class="note">Click to move to active abilities.</p></div></li>
+					</ul>
+				</div>
+				<div id="champion-details-talents">
+					<div id="champion-details-talents-tree">
+						<div id="champion-details-talents-tree-background">
+						</div>
+						<div class="talent has-tooltip" style="left: {{(talent.x-talent.d/2+x_offset)}}px; top: {{(talent.y-talent.d/2+y_offset)}}px; width: {{talent.d}}px; height: {{talent.d}}px;" ng-repeat="talent in talents_db">
+							<img src="{{ talent.icon }}">
+							<div class="tooltip">
+								<h1>{{ talent.name }}</h1>
+								<span>{{ talent.description }}</span>
+								<p class="note"></p>
+							</div>
+						</div>
+						<div class="talent has-tooltip" style="left: {{x_offset-50}}px; top: {{y_offset-50}}px; width: 100px; height: 100px;">
+							<img src="{{ detailed_char.round_thumbnail }}">
+							<div class="tooltip">
+								<h1>{{ detailed_char.name }}</h1>
+								<span>Level {{ detailed_char.level }} {{ detailed_char.class }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="champions">
+			<ul>
+				<li ng-repeat="character in characters" ng-click="react_on_click(character)">
+					<h1 class="champion-name">{{ character.name }}</h1>
+					<img class="champion-image" src="{{ character.image }}" width="309" height="400">
+					<h3 class="champion-level-class">Level {{ character.level }} {{ character.class }}</h3>
+				</li>
+				<li id="create-new-champion" ui-show="characters.length<3">
+					<h1 class="champion-name">Create New Champion</h1>
+					<img class="champion-image" src="images/unknown.png" width="309" height="400">
+					<h3 class="champion-level-class">Click for class selection</h3>
+				</li>
+			</ul>
+			<img id="close-champions" src="images/close.png" width="32" height="32">
+		</div>
+		<div id="index">
+			<div id="index-left">
+				<h1>Some event</h1>
+				<p>Some lorem ipsum stuff that will be displayed here.</p>
+			</div>
+			<div id="index-right">
+				<a id="display-all-champions">Champions</a>
+				<div ng-repeat="character in characters" ng-click="react_on_click(character)">
+					<img src="{{ character.thumbnail }}" width="161" height="161">
+					<h1>{{ character.name }}</h1>
+					<h2>Level {{ character.level }} {{ character.class }}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>&copy; All rights reserved - Champions of Valhalla 2013</p>
+	</footer>
+</body>
+</html>

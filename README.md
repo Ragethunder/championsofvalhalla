@@ -1,0 +1,1 @@
+This application is using AngularJS, CouchDB and KineticJS to implement an online game that will be completely browser based.
